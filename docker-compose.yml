@@ -1,0 +1,42 @@
+services:
+
+  mlflow-server:
+    image: ghcr.io/mlflow/mlflow:v3.1.4
+    container_name: mlflow-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_data:/mlflow
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:///mlflow/mlflow.db
+      --default-artifact-root file:///mlflow/artifacts
+      --host 0.0.0.0
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/')"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  fastapi-app:
+    build: .
+    container_name: sentiment-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - mlflow_data:/mlflow
+    depends_on:
+      mlflow-server:
+        condition: service_healthy
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow-server:5000
+      - MLFLOW_MODEL_NAME=SentimentClassifier
+      - MLFLOW_MODEL_STAGE=production
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mlflow_data:
