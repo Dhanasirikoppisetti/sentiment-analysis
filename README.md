@@ -65,7 +65,7 @@ The easiest way to get started is using Docker Compose:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/Dhanasirikoppisetti/sentiment-analysis
 cd sentiment-mlops-service
 
 # Build and start services
