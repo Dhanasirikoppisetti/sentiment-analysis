@@ -212,6 +212,20 @@ Response:
 docker-compose exec fastapi-app pytest tests/ -v
 ```
 
+## 📸 Screenshots
+
+### MLflow Experiments
+![MLflow Experiments](images/mlflow-experiments.png)
+
+### Model Registry
+![Model Registry](images/mlflow-model-registry.png)
+
+### Model Version (Production)
+![Model Version](images/mlflow-model-version.png)
+
+### FastAPI Swagger UI
+![Swagger UI](images/swagger-predict.png)
+
 ## 📊 Model Performance
 
 - Accuracy: ~89–90%
