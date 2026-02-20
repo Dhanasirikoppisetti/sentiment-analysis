@@ -215,7 +215,7 @@ docker-compose exec fastapi-app pytest tests/ -v
 ## 📸 Screenshots
 
 ### MLflow Experiments
-![MLflow Experiments](images/mlflow-experiments.png)
+![MLflow Experiments](images/mlflow-experiment.png)
 
 ### Model Registry
 ![Model Registry](images/mlflow-model-registry.png)
