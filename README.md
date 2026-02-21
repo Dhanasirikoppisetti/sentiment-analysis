@@ -1,100 +1,6 @@
 # Sentiment Analysis MLOps Service
 
-A production-ready sentiment analysis inference service that demonstrates modern MLOps practices using MLflow for experiment tracking and model registry management, combined with FastAPI for building a scalable REST API.
-
-## 🎯 Overview
-
-This project implements a complete MLOps workflow for sentiment analysis:
-
-1. **Data Processing**: Load and preprocess IMDb movie reviews
-2. **Model Training**: Train a Logistic Regression model with TF-IDF vectorization
-3. **Experiment Tracking**: Log all experiments to MLflow for reproducibility
-4. **Model Registry**: Manage model versions and lifecycle stages
-5. **API Service**: Serve predictions via a FastAPI REST endpoint
-6. **Containerization**: Deploy using Docker and Docker Compose
-
-### Key Features
-
-- ✅ **MLflow Integration**: Complete experiment tracking and model registry management
-- ✅ **FastAPI Inference**: High-performance REST API with input validation
-- ✅ **Docker Compose**: Orchestrate MLflow server and API service
-- ✅ **Comprehensive Testing**: Unit and integration tests with pytest
-- ✅ **Production Ready**: Error handling, logging, health checks
-- ✅ **Reproducible**: Fixed random seeds and pinned dependencies
-
-## 📁 Project Structure
-
-```
-sentiment-mlops-service/
-├── app/
-│   ├── __init__.py
-│   ├── main.py                 # FastAPI application
-│   └── utils/
-│       ├── __init__.py
-│       └── preprocess.py        # Text preprocessing utilities
-├── tests/
-│   ├── __init__.py
-│   ├── test_preprocess.py       # Unit tests for preprocessing
-│   └── test_api.py              # Integration tests for API
-├── train.py                     # Model training script with MLflow
-├── requirements.txt             # Python dependencies
-├── Dockerfile                   # Docker image definition
-├── docker-compose.yml           # Multi-container orchestration
-├── .env.example                 # Environment variable template
-├── README.md                    # This file
-└── IMDB Dataset.csv            # Dataset (download from Kaggle)
-```
-
-## 📦 Prerequisites
-
-- **Docker** (version 20.10+)
-- **Docker Compose** (version 1.29+)
-- **Python 3.9+** (for local development)
-- **Git**
-
-### Dataset
-
-Download the IMDb Movie Review dataset from [Kaggle](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews):
-
-1. Download `IMDB Dataset.csv`
-2. Place it in the root directory of the project
-
-## 🚀 Quick Start
-
-The easiest way to get started is using Docker Compose:
-
-```bash
-# Clone the repository
-git clone https://github.com/Dhanasirikoppisetti/sentiment-analysis
-cd sentiment-mlops-service
-
-# Build and start services
-docker-compose up --build
-
-# Check service health
-curl http://localhost:8000/health
-
-# Access MLflow UI
-# Open browser: http://localhost:5000
-```
-
-## 🔧 Setup Instructions
-
-### Option 1: Using Docker Compose (Recommended)
-
-#### 1. Build and Start Services
-
-```bash
-docker-compose up --build
-```
-
-This starts:
-- **MLflow Server**: http://localhost:5000 (Experiment tracking & model registry)
-- **FastAPI Application**: http://localhost:8000 (Sentiment inference API)
-
-# Sentiment Analysis MLOps Service
-
-A production-ready Sentiment Analysis API built using MLflow Model Registry, FastAPI, and Docker.
+A production-ready sentiment analysis API built using MLflow Model Registry, FastAPI, and Docker.
 
 This project demonstrates an end-to-end MLOps workflow — from model training and experiment tracking to model versioning and API deployment.
 
@@ -112,7 +18,7 @@ The model is trained on the IMDb Movie Review dataset and served through a REST 
 
 ## 🏗️ Architecture
 
-Client → FastAPI → MLflow Model Registry → Trained Model
+`Client → FastAPI → MLflow Model Registry → Trained Model`
 
 - Model is registered in MLflow
 - Production version is automatically loaded by API
@@ -141,7 +47,7 @@ sentiment-mlops-service/
 └── README.md
 ```
 
-## ⚙️ How to Run (Docker – Recommended)
+## ⚙️ How to Run (Docker Recommended)
 
 ### 1️⃣ Build and Start Services
 
@@ -169,25 +75,21 @@ This will:
 
 ### 3️⃣ Test the API
 
-Open:
-
-http://localhost:8000/docs
-
-Swagger UI will appear.
+Open http://localhost:8000/docs to view Swagger UI.
 
 ## 🔌 API Endpoints
 
 ### Health Check
 
-GET /health
+- `GET /health`
 
 ### Model Info
 
-GET /info
+- `GET /info`
 
 ### Predict Sentiment
 
-POST /predict
+- `POST /predict`
 
 Request:
 
@@ -251,4 +153,9 @@ Built as part of an academic MLOps evaluation project.
 
 Version: 1.0.0  
 Last Updated: February 2026
-  "mlflow_tracking_uri": "http://mlflow-server:5000",
+
+## 🎥 Demo Video
+
+[Watch the project demo on YouTube](https://youtu.be/Sudub3DJ8Gs)
+
+[![Watch Demo Video](https://img.youtube.com/vi/Sudub3DJ8Gs/0.jpg)](https://youtu.be/Sudub3DJ8Gs)
